@@ -1,4 +1,4 @@
-package org.talkingpanda.itemrandomizer;
+package org.talkingpanda.blockrandomizer;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
@@ -11,7 +11,7 @@ import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class ItemRandomizer implements ModInitializer {
+public class BlockRandomizer implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
@@ -24,7 +24,7 @@ public class ItemRandomizer implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		KeyBinding = KeyBindingHelper.registerKeyBinding(new KeyBinding(
-					"key.itemrandomizer.start",
+					"key.blockrandomizer.start",
 					InputUtil.Type.KEYSYM,
 					GLFW.GLFW_KEY_R,
 					"category.talkingpanda.start"

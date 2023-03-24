@@ -1,12 +1,12 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "org.talkingpanda.itemrandomizer",
+  "package": "org.talkingpanda.blockrandomizer",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
   ],
   "client": [
-    "ItemRandomizerMixin"
+    "BlockRandomizerMixin"
   ],
   "injectors": {
     "defaultRequire": 1

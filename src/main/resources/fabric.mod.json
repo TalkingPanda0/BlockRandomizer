@@ -3,14 +3,14 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Item Randomizer",
+  "name": "Block Randomizer",
   "description": "places a random block from your hotbar with custom probabilty of each slot",
   "authors": [
     "TalkingPanda"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/TalkingPanda0/item-randomizer"
+    "sources": "https://github.com/TalkingPanda0/BlockRandomizer"
   },
 
   "license": "CC0-1.0",
@@ -19,7 +19,7 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-	    "org.talkingpanda.itemrandomizer.ItemRandomizer"
+	    "org.talkingpanda.blockrandomizer.BlockRandomizer"
       
     ]
   },
