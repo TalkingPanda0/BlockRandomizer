@@ -3,14 +3,14 @@
   "id": "modid",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Item Randomizer",
+  "description": "places a random block from your hotbar with custom probabilty of each slot",
   "authors": [
-    "Me!"
+    "TalkingPanda"
   ],
   "contact": {
     "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "sources": "https://github.com/TalkingPanda0/item-randomizer"
   },
 
   "license": "CC0-1.0",
@@ -19,11 +19,11 @@
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+	    "org.talkingpanda.itemrandomizer.ItemRandomizer"
+      
     ]
   },
   "mixins": [
-    "modid.mixins.json"
   ],
 
   "depends": {
