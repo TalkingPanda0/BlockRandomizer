@@ -1,6 +1,6 @@
 package org.talkingpanda.blockrandomizer;
 
-import net.fabricmc.api.ModInitializer;
+import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.minecraft.client.MinecraftClient;
@@ -17,7 +17,7 @@ import org.lwjgl.glfw.GLFW;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BlockRandomizer implements ModInitializer {
+public class BlockRandomizer implements ClientModInitializer {
 	
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
@@ -25,7 +25,8 @@ public class BlockRandomizer implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("org.talkingpanda.blockrandomizer");
 	public static Boolean isActive = false;
 	private static ArrayList<Integer> choices = new ArrayList<Integer>();
-	private static int multipliers[] = new int[]{1,1,1,1,5,1,1,1,1};
+	
+	public static int multipliers[] = {1,1,1,1,1,1,1,1,1};
 
 	private static MinecraftClient client;
 	private static KeyBinding KeyBinding; 
@@ -34,7 +35,7 @@ public class BlockRandomizer implements ModInitializer {
 		PlayerInventory inventory =  player.getInventory();
 		inventory.selectedSlot = choices.get((int)(Math.random() * choices.size()));
 	}
-	private static void GenerateChoices(){
+	public static void GenerateChoices(){
 		choices. clear();
 		for(int i=0;i<multipliers.length;i++)
 		{
@@ -46,7 +47,7 @@ public class BlockRandomizer implements ModInitializer {
 
 	}
 	@Override
-	public void onInitialize() {
+	public void onInitializeClient() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
@@ -61,17 +62,16 @@ public class BlockRandomizer implements ModInitializer {
 		client = MinecraftClient.getInstance();
 		ClientTickEvents.END_CLIENT_TICK.register(client -> {
 			while(KeyBinding.wasPressed()) {
+				LOGGER.info("" + multipliers[0]);
 				
 				isActive = !isActive;
 				client.inGameHud.setTitle(Text.literal(isActive ? "Block Randomizer: ON" : "Block Randomizer: OFF"));
 				if(isActive)
 					GenerateChoices();
-				LOGGER.info(choices.toString());;
-			}
-		});
+		}});
 		
 		
 
-		LOGGER.info("Item Randomizer Loaded!");
+		LOGGER.info("Block Randomizer Loaded!");
 	}
 }

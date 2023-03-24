@@ -18,9 +18,12 @@
 
   "environment": "*",
   "entrypoints": {
-    "main": [
+    "client": [
 	    "org.talkingpanda.blockrandomizer.BlockRandomizer"
       
+    ],
+    "modmenu": [
+	    "org.talkingpanda.blockrandomizer.ModMenu"
     ]
   },
   "mixins": [
