@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "blockrandomizer",
   "version": "${version}",
 
   "name": "Block Randomizer",
@@ -24,6 +24,7 @@
     ]
   },
   "mixins": [
+	  "BlockRandomizer.mixins.json"
   ],
 
   "depends": {
